@@ -1,0 +1,30 @@
+<Project>
+  <PropertyGroup>
+    <Deterministic>true</Deterministic>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <Version>1.0</Version>
+    <OutputPath>bin/$(Configuration)</OutputPath>
+    <Nullable>enable</Nullable>
+    <LangVersion>preview</LangVersion>
+    <Company>Sundews</Company>
+    <Authors>Kim Hugener-Ohlsen</Authors>
+    <Copyright>Kim Hugener-Ohlsen</Copyright>
+    <RepositoryUrl>https://github.com/sundews/Initialization.Interfaces</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/sundews/Initialization.Interfaces</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <PackageReleaseNotes>1.0 - Initial version.</PackageReleaseNotes>
+    <Configurations>Debug;Release;Debug-Publish;Release-Publish;Release-Stable</Configurations>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(ContinuousIntegrationBuild)' == 'true'">
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>    
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)"/>
+  </ItemGroup>
+  <Import Project="Directory.Build.props.user" Condition="Exists('Directory.Build.props.user')"/>
+</Project>
